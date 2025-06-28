@@ -1,14 +1,16 @@
-import type { Config } from 'tailwindcss'
+const path = require('path');
 
-const config: Config = {
+/** @type {import('tailwindcss').Config} */
+module.exports = {
   content: [
-    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
-    // 향후 components 폴더 등을 만들 경우, 여기에 경로를 추가하게 됩니다.
-    // 예: './src/components/**/*.{js,ts,jsx,tsx,mdx}',
+    // src/app 폴더 내부의 모든 관련 파일을 대상으로 지정
+    path.join(__dirname, './src/app/**/*.{js,ts,jsx,tsx,mdx}'),
+
+    // 향후 src/components 폴더를 만들 경우를 대비
+    // path.join(__dirname, './src/components/**/*.{js,ts,jsx,tsx,mdx}'),
   ],
   theme: {
     extend: {},
   },
   plugins: [],
-}
-export default config
+};
